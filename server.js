@@ -8,7 +8,7 @@ const indexRoutes = require('./routes/index');
 const eventRoutes = require('./routes/event');
 
 app.use(indexRoutes);
-app.use(eventRoutes);
+app.use("/event", eventRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
