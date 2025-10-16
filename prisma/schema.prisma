@@ -13,3 +13,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model User {
+  id      Int      @id @default(autoincrement()) // Chave primária, auto incremento
+  username   String   @unique                       // Campo de e-mail, deve ser único
+  password    String                            // Campo opcional
+  question String?                           // Campo opcional
+  answer String?                           // Campo opcional
+  adm   Boolean  @default(false)              // Campo booleano, padrão é false
+                               // Relação 1:N com o modelo Post
+}
+model Event {
+  idevent Int @id @default(autoincrement())
+  title String 
+  location String
+  date DateTime
+  description String
+  participants Participant[]
+  
+}
+model Participant{
+  idparticipant Int @id @default(autoincrement())
+  name String
+  email String @unique
+  phone String
+  events Event[]
+}
