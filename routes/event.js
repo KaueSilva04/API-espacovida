@@ -1,5 +1,6 @@
 const create_event_controller = require('./../controller/event/create_event')
 const edit_event_controller = require('./../controller/event/edit_event')
+const delete_event_controller = require('./../controller/event/delete_event')
 const express = require('express');
 const router = express.Router();
 
@@ -18,7 +19,10 @@ router.put('/', (req, res) => {
 
 
 router.delete('/', (req, res) => {
-    res.json({ ok: true, message: 'Rota de eventos padrão' });
+    id_evento_json = req.body
+    id_evento = parseInt(id_evento_json.id, 10)
+    deleted_event = edit_event_controller.delete_event_controller(id_evento)
+    res.json(deleted_event)
 });
 
 
