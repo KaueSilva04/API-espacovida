@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/KaueSilva04/API-espacovida/issues"
   },
-  "homepage": "https://github.com/KaueSilva04/API-espacovida#readme"
+  "homepage": "https://github.com/KaueSilva04/API-espacovida#readme",
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "express": "^5.1.0",
+    "prisma": "^6.17.1"
+  }
 }
