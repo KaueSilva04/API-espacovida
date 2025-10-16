@@ -1,17 +1,13 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-async function delete_event(event_id) {
+async function get_participant_by_event(event_id) {
     try {
-        await prisma.participant.deleteMany({
+        const participants = await prisma.participant.findMany({
             where: { eventId: event_id }
         });
 
-        const edited_event = await prisma.event.delete({
-            where: { idevent: event_id } 
-        });
-
-        return edited_event;
+        return participants;
 
     } catch (error) {
         console.error("Erro ao excluir evento: ", error);
@@ -20,5 +16,5 @@ async function delete_event(event_id) {
 }
 
 module.exports = {
-    delete_event
+    get_participant_by_event
 };
