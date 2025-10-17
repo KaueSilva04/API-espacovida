@@ -4,9 +4,8 @@
   "description": "O projeto consiste na refatoração do sistema web da ONG Espaço Vida, visando otimizar o código, melhorar a performance e facilitar a manutenção. A plataforma organiza e simplifica a gestão de beneficiários, eventos, voluntários e ações sociais.",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,9 @@
   "homepage": "https://github.com/KaueSilva04/API-espacovida#readme",
   "dependencies": {
     "@prisma/client": "^6.17.1",
-    "express": "^5.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
     "prisma": "^6.17.1"
   }
 }
