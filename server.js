@@ -29,6 +29,14 @@ const userRoutes = require('./routes/user');
 
 app.use('/user', userRoutes); 
 
+const indexRoutes = require('./routes/index');
+const eventRoutes = require('./routes/event');
+const participantRoutes = require('./routes/participant');
+
+app.use(indexRoutes);
+app.use(eventRoutes);
+app.use('/participant', participantRoutes); 
+app.use("/event", eventRoutes);
 
 app.use((err, req, res, next) => {
     console.error('ERRO GLOBAL:', err.stack);
@@ -40,3 +48,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
