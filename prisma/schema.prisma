@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,28 +6,30 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model User {
-  id      Int      @id @default(autoincrement()) // Chave primária, auto incremento
-  username   String   @unique                       // Campo de e-mail, deve ser único
-  password    String                            // Campo opcional
-  question String?                           // Campo opcional
-  answer String?                           // Campo opcional
-  adm   Boolean  @default(false)              // Campo booleano, padrão é false
-                               // Relação 1:N com o modelo Post
+  id         Int     @id @default(autoincrement())
+  username   String  @unique
+  password   String
+  question   String?
+  answer     String?
+  adm        Boolean @default(false)
 }
+
 model Event {
-  idevent Int @id @default(autoincrement())
-  title String 
-  location String
-  date DateTime
+  idevent     Int          @id @default(autoincrement())
+  title       String
+  location    String
+  date        DateTime
   description String
   participants Participant[]
-  
 }
-model Participant{
-  idparticipant Int @id @default(autoincrement())
-  name String
-  email String @unique
-  phone String
-  events Event[] 
+
+model Participant {
+  idparticipant Int    @id @default(autoincrement())
+  name          String
+  email         String @unique
+  phone         String
+  eventId       Int
+  event         Event  @relation(fields: [eventId], references: [idevent])
 }

@@ -12,6 +12,7 @@ const participantRoutes = require('./routes/participant');
 app.use(indexRoutes);
 app.use(eventRoutes);
 app.use('/participant', participantRoutes); 
+app.use("/event", eventRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

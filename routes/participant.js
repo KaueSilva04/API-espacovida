@@ -1,6 +1,6 @@
 const express = require('express');
-const { participate } = require('../controller/participant/participantparticipate');
-
+const { participantparticipate } = require('../controller/participant/participantparticipate');
+const { deleteparticipant } = require('../controller/participant/deleteparticipant');   
 const router = express.Router();
 
 
@@ -9,9 +9,12 @@ router.get('/test', (req, res) => {
 });
 
 router.post('/participate', (req, res, next) => {
-    participate(req, res, next);
+    participantparticipate(req, res, next);
 });
 
+router.delete('/delete', (req, res, next) => {
+    deleteparticipant(req, res, next);
+});
 
 
 
