@@ -56,7 +56,6 @@ exports.participantparticipate = async (req, res, next) => {
     });
   } catch (err) {
     if (err.code === 'P2002' && err.meta?.target?.includes('email')) {
-      // ainda assim, devolve erro amigável
       return res.status(409).json({
         status: 'erro',
         message: 'E-mail já cadastrado para outro participante.',

@@ -3,6 +3,7 @@ const edit_event_controller = require('./../controller/event/edit_event');
 const delete_event_controller = require('./../controller/event/delete_event');
 const get_participant_by_event_controller = require('./../controller/event/get_participant_by_event');
 const express = require('express');
+const { listAllEvents } = require('../controller/event/listallevent');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -50,5 +51,10 @@ router.get('/participants', async (req, res) => {
         res.status(500).json({ error: error.message || "Erro ao buscar participantes." });
     }
 });
+
+router.get('/list', (req, res, next) => {
+    listAllEvents(req, res, next);
+});
+
 
 module.exports = router;

@@ -33,6 +33,7 @@ const indexRoutes = require('./routes/index');
 const eventRoutes = require('./routes/event');
 const participantRoutes = require('./routes/participant');
 
+
 app.use(indexRoutes);
 app.use(eventRoutes);
 app.use('/participant', participantRoutes); 
