@@ -1,6 +1,4 @@
-const express = require('express');
-const UserService = require('../services/user.service');
-const router = express.Router();
+const UserService = require('../../services/userservices/listAllUsers.Service');
 
 
 
