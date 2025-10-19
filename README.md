@@ -35,8 +35,6 @@
 
 <div align="center">
   
-  <img src="https://media.giphy.com/media/kdFc8fubgS31b8DsVu/giphy.gif" width="50">
-  
   ### ☕ Java API Development with Spring Boot
   
   <table>
