@@ -1,28 +1,18 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Gabriel%20Sorensen&fontSize=80&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=Full%20Stack%20Developer%20%7C%20Backend%20Specialist&descAlignY=55&descSize=20" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=API%20Espaço%20Vida&fontSize=80&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=NGO%20Management%20System%20API&descAlignY=55&descSize=20" width="100%"/>
 </div>
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=9D4EDD&center=true&vCenter=true&random=false&width=600&lines=Building+Scalable+Systems+%F0%9F%9A%80;Clean+Architecture+Advocate+%F0%9F%8F%97%EF%B8%8F;Backend+%2B+Data+Science+%F0%9F%93%8A;Open+to+Collaboration+%F0%9F%A4%9D" alt="Typing SVG" />
+  
+  ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+  ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+  ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+  ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+  
 </div>
 
-<br/>
-
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="50%">
-        <img src="https://img.shields.io/badge/Unicamp-Student-7B2CBF?style=for-the-badge&logo=googlescholar&logoColor=white"/>
-        <br/>
-        <sub><b>Sistemas de Informação</b></sub>
-      </td>
-      <td align="center" width="50%">
-        <img src="https://img.shields.io/badge/Atria_Jr-Backend_Dev-5A189A?style=for-the-badge&logo=codeigniter&logoColor=white"/>
-        <br/>
-        <sub><b>Building Real Solutions</b></sub>
-      </td>
-    </tr>
-  </table>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=9D4EDD&center=true&vCenter=true&random=false&width=700&lines=Refactored+NGO+Management+Platform+%F0%9F%92%9C;Optimized+Performance+%26+Clean+Code+%F0%9F%9A%80;Beneficiaries+%7C+Events+%7C+Volunteers+%F0%9F%A4%9D" alt="Typing SVG" />
 </div>
 
 <br/>
@@ -31,46 +21,41 @@
 
 <br/>
 
-## 🎯 Current Focus
+## 📋 Overview
+
+**API Espaço Vida** is a refactored web system for the NGO Espaço Vida, designed to optimize code quality, improve performance, and simplify maintenance. The platform streamlines the management of beneficiaries, events, volunteers, and social actions through a robust REST API architecture.
+
+<br/>
+
+## ✨ Key Features
 
 <div align="center">
   
-  ### ☕ Java API Development with Spring Boot
-  
   <table>
     <tr>
-      <td align="center" width="20%">
-        <img src="https://img.icons8.com/color/96/000000/spring-logo.png" width="70"/>
-        <br/><b>Spring Boot</b>
-        <br/><sub>REST APIs</sub>
+      <td align="center" width="25%">
+        <img src="https://img.icons8.com/fluency/96/000000/conference-call.png" width="60"/>
+        <br/><b>Beneficiary Management</b>
+        <br/><sub>Complete CRUD operations</sub>
       </td>
-      <td align="center" width="20%">
-        <img src="https://img.icons8.com/color/96/000000/java-coffee-cup-logo--v1.png" width="70"/>
-        <br/><b>Java 17+</b>
-        <br/><sub>Modern Features</sub>
+      <td align="center" width="25%">
+        <img src="https://img.icons8.com/fluency/96/000000/calendar.png" width="60"/>
+        <br/><b>Event Coordination</b>
+        <br/><sub>Schedule & track activities</sub>
       </td>
-      <td align="center" width="20%">
-        <img src="https://img.icons8.com/color/96/000000/api-settings.png" width="70"/>
-        <br/><b>RESTful Design</b>
-        <br/><sub>Best Practices</sub>
+      <td align="center" width="25%">
+        <img src="https://img.icons8.com/fluency/96/000000/helping-hand.png" width="60"/>
+        <br/><b>Volunteer Registry</b>
+        <br/><sub>Manage volunteer data</sub>
       </td>
-      <td align="center" width="20%">
-        <img src="https://img.icons8.com/color/96/000000/database.png" width="70"/>
-        <br/><b>JPA/Hibernate</b>
-        <br/><sub>ORM Mastery</sub>
-      </td>
-      <td align="center" width="20%">
-        <img src="https://img.icons8.com/color/96/000000/lock--v1.png" width="70"/>
-        <br/><b>Spring Security</b>
-        <br/><sub>JWT Auth</sub>
+      <td align="center" width="25%">
+        <img src="https://img.icons8.com/fluency/96/000000/security-checked.png" width="60"/>
+        <br/><b>Secure Authentication</b>
+        <br/><sub>JWT + bcrypt protection</sub>
       </td>
     </tr>
   </table>
   
-  <img src="https://img.shields.io/badge/Microservices-Architecture-9D4EDD?style=for-the-badge&logo=spring&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Docker-Containerization-5A189A?style=for-the-badge&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Cloud-AWS_Ready-7B2CBF?style=for-the-badge&logo=amazonaws&logoColor=white"/>
-  
 </div>
 
 <br/>
@@ -79,51 +64,25 @@
 
 <br/>
 
-## 💻 Tech Arsenal
+## 🛠️ Tech Stack
 
 <div align="center">
 
-<table>
-<tr>
-<td valign="top" width="33%">
+### Backend Framework
+![Express.js](https://img.shields.io/badge/Express.js-5.1.0-000000?style=for-the-badge&logo=express&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Latest-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-<div align="center">  
-<h3>🔧 Backend</h3>
-<img src="https://skillicons.dev/icons?i=java,spring,nodejs,typescript,python,express,fastify&theme=dark" />
-<br/><br/>
-<img src="https://img.shields.io/badge/Clean_Architecture-Expert-9D4EDD?style=flat-square&logo=architecture&logoColor=white"/>
-</div>
+### Database & ORM
+![Prisma](https://img.shields.io/badge/Prisma-6.17.1-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Ready-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-</td>
-<td valign="top" width="33%">
+### Security & Authentication
+![bcrypt](https://img.shields.io/badge/bcrypt-6.0.0-7B2CBF?style=for-the-badge&logo=letsencrypt&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-9.0.2-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 
-<div align="center">
-<h3>🎨 Frontend</h3>
-<img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,js,html,css&theme=dark" />
-<br/><br/>
-<img src="https://img.shields.io/badge/Responsive-Design-7B2CBF?style=flat-square&logo=css3&logoColor=white"/>
-</div>
+### Environment
+![dotenv](https://img.shields.io/badge/dotenv-17.2.3-ECD53F?style=for-the-badge&logo=dotenv&logoColor=black)
 
-</td>
-<td valign="top" width="33%">
-
-<div align="center">
-<h3>🗄️ Database & Tools</h3>
-<img src="https://skillicons.dev/icons?i=postgres,mongodb,prisma,docker,git,postman,figma&theme=dark" />
-<br/><br/>
-<img src="https://img.shields.io/badge/DevOps-Ready-5A189A?style=flat-square&logo=kubernetes&logoColor=white"/>
-</div>
-
-</td>
-</tr>
-</table>
-
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="200"/>
 </div>
 
 <br/>
@@ -132,55 +91,7 @@
 
 <br/>
 
-## 📊 GitHub Insights
+## 🏗️ Architecture
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SorensenG&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=9D4EDD&icon_color=7B2CBF&text_color=FFFFFF&border_radius=10" />
-  <img width="49%" src="https://streak-stats.demolab.com?user=SorensenG&theme=tokyonight&hide_border=true&background=0D1117&ring=9D4EDD&fire=7B2CBF&currStreakLabel=9D4EDD&border_radius=10" />
-</div>
 
-<br/>
-
-<div align="center">
-  <img width="70%" src="https://github-readme-activity-graph.vercel.app/graph?username=SorensenG&custom_title=Contribution%20Graph&bg_color=0D1117&color=9D4EDD&line=7B2CBF&point=FFFFFF&area_color=5A189A&area=true&hide_border=true&radius=10" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SorensenG&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=9D4EDD&text_color=FFFFFF&border_radius=10" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=SorensenG&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=15&margin-h=15" />
-</div>
-
-<br/>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
-<br/>
-
-## 🌐 Let's Connect
-
-<div align="center">
-  
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=5A189A)](https://www.linkedin.com/in/gabriel-sorensen)
-  [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=7B2CBF)](mailto:g.soren.sen2004@gmail.com)
-  [![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=9D4EDD)](https://www.instagram.com/bielll.png/)
-  
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=SorensenG&label=Profile%20Views&color=9D4EDD&style=for-the-badge" alt="Profile views" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=fadeIn" width="100%"/>
-</div>
