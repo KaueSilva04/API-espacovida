@@ -165,21 +165,6 @@
 
 <br/>
 
-## 🚀 Featured Projects
-
-<div align="center">
-
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=SorensenG&repo=REPO1&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=9D4EDD&icon_color=7B2CBF&text_color=FFFFFF)](https://github.com/SorensenG/REPO1)
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=SorensenG&repo=REPO2&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=9D4EDD&icon_color=7B2CBF&text_color=FFFFFF)](https://github.com/SorensenG/REPO2)
-
-</div>
-
-<br/>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
-<br/>
-
 ## 🌐 Let's Connect
 
 <div align="center">
