@@ -1,6 +1,6 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
-const { encrypt, decrypt } = require('./hash');
+const { encrypt, decrypt } = require('../utils/crypto');
 const crypto = require('crypto');
 // --- FUNÇÕES DE CRUD PARA USUÁRIO ---
 const prisma = new PrismaClient();

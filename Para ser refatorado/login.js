@@ -1,5 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
-const { encrypt, decrypt } = require('./hash'); // seu módulo de criptografia
+const { encrypt, decrypt } = require('../utils/crypto'); // seu módulo de criptografia
 
 const prisma = new PrismaClient();
 
