@@ -10,11 +10,6 @@
   ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
   
 </div>
-
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=9D4EDD&center=true&vCenter=true&random=false&width=700&lines=Refactored+NGO+Management+Platform+%F0%9F%92%9C;Optimized+Performance+%26+Clean+Code+%F0%9F%9A%80;Beneficiaries+%7C+Events+%7C+Volunteers+%F0%9F%A4%9D" alt="Typing SVG" />
-</div>
-
 <br/>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
