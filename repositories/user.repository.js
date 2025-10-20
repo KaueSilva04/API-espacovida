@@ -9,5 +9,13 @@ module.exports = {
             select: { id: true, username: true, adm: true, question: true, answer: true },
         });
         return users;
+    },
+    async createUser(username, password, question, answer, adm) {
+        password = encrypt(password)
+        const user = await prisma.user.create({
+            data: { username, password, question, answer, adm }
+        })
+        return user;
     }
+
 }
