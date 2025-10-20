@@ -6,7 +6,7 @@ const router = express.Router();
 const createEventController = require('../controllers/eventcontroller/createEvent.Controller.js');
 const editEventController = require('../controllers/eventcontroller/editEvent.Controller.js');
 const deleteEventController = require('../controllers/eventcontroller/deleteEvent.Controller.js');
-const getParticipantsByEventController = require('../controllers/eventcontroller/getParticipantsByEvent.js');
+const getParticipantsByEventController = require('../controllers/eventcontroller/getParticipantsByEvent.Controller.js');
 
 router.get('/test', (req, res) => {
   res.json({ message: 'event routes ok' });
