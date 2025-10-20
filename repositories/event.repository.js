@@ -44,5 +44,10 @@ module.exports = {
         });
 
         return participants;
+    },
+    async listAllEvents(){
+
+        const events = await prisma.event.findMany();
+        return events;
     }
 };

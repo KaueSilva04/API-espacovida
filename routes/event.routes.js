@@ -7,6 +7,7 @@ const createEventController = require('../controllers/eventcontroller/createEven
 const editEventController = require('../controllers/eventcontroller/editEvent.Controller.js');
 const deleteEventController = require('../controllers/eventcontroller/deleteEvent.Controller.js');
 const getParticipantsByEventController = require('../controllers/eventcontroller/getParticipantsByEvent.Controller.js');
+const listAllEventsController = require('../controllers/eventcontroller/listAllEvent.Controller.js');
 
 router.get('/test', (req, res) => {
   res.json({ message: 'event routes ok' });
@@ -16,8 +17,7 @@ router.get('/test', (req, res) => {
 router.post('/',        (req, res, next) => createEventController.createEvent(req, res, next));
 router.put('/',         (req, res, next) => editEventController.editEvent(req, res, next));
 router.delete('/',      (req, res, next) => deleteEventController.deleteEvent(req, res, next));
-router.get('/participants', (req, res, next) =>
-  getParticipantsByEventController.getParticipantByEvent(req, res, next)
-);
+router.get('/participants', (req, res, next) => getParticipantsByEventController.getParticipantByEvent(req, res, next));
+router.get('/all',      (req, res, next) => listAllEventsController.listAllEvents(req, res, next));
 
 module.exports = router;
