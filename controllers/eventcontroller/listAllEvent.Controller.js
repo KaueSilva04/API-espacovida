@@ -1,4 +1,4 @@
-const ListAllEventsService = require('../../services/eventservice/listAllEvent.Service.js');
+const ListAllEventsService = require('../../services/eventservices/listAllEvents.Service');
 
 module.exports = {
     async listAllEvents(req, res, next) {
