@@ -1,7 +1,5 @@
 const UserService = require('../../services/userservices/listAllUsers.Service');
 
-
-
 module.exports = {
     async listAll(req, res) {
         try {
