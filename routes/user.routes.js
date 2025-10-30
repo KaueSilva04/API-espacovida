@@ -27,7 +27,9 @@ router.get('/listid', (req, res, next) => listUserById(req, res, next));
 router.get('/listname', (req,res,next) => listUserByName(req, res, next));
 router.post('/login', (req, res, next) => loginUser(req, res, next));
 
-
+app.get('/session', authMiddleware(false), (req, res) => {
+  res.json({ user: req.user });
+});
 
 
 
