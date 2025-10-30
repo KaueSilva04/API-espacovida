@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { PrismaClient } = require('@prisma/client');
 
 const app = express();
@@ -11,6 +12,8 @@ module.exports.prisma = prisma;
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
+
 
 const indexRoutes = require('./routes/index');
 const eventRoutes = require('./routes/event.routes');

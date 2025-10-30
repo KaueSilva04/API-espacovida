@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.JWT_SECRET;
 
 module.exports = {
     authMiddleware(requireAdmin = false) {
@@ -15,7 +17,7 @@ module.exports = {
                 req.user = decoded;
                 next();
             } catch (err) {
-                return res.status(403).json({ error: 'Token inválido ou expirado' });
+                return res.status(403).json({ error: 'Token inválido ou expirado ' + err });
             }
         };
     }

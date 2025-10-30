@@ -7,9 +7,9 @@ module.exports = {
             const user = await LoginService.loginUserService(username, password);
             // envia cookie HttpOnly
             res.cookie('token', user.token, {
-                httpOnly: true,   // não acessível via JS
-                secure: process.env.NODE_ENV === 'production', // só HTTPS
-                sameSite: 'strict', // protege contra CSRF
+                httpOnly: true,   
+                secure: process.env.NODE_ENV === 'production', 
+                sameSite: 'strict', 
                 maxAge: 3600000 * 3 // 3 hora
             });
             res.json({ user: user.data });
