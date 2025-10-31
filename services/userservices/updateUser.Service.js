@@ -58,3 +58,9 @@ const updateUserService = async (id, username, password, question, answer, adm) 
 
 // Exporta AMBOS para que o Controller possa pegá-los.
 module.exports = { updateUserService, CustomError };
+
+module.exports = {
+    async updateUserService(id, username, password, question, answer, adm){
+        
+    }
+}

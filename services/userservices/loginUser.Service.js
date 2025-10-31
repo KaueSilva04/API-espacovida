@@ -6,11 +6,19 @@ const { generateToken } = require('../../utils/JWT.JS');
 module.exports = {
     async loginUserService(username, password) {
 
-         if (!username || !password) throw new Error('Username ou password são obrigatorios');
-        
+        if (!username || typeof username !== 'string' || !password || typeof password !== 'string') {
+            const err = new Error("Insira username e password como um string obrigatoriamente");
+            err.statusCode = 400;
+            throw err;
+        }
 
         const user = await UserRepository.getUserByName(username);
-        if (!user) throw new Error('usuario inesistente.');
+
+        if (!user) {
+            const err = new Error("Erro interno ao tentar listar usuario");
+            err.statusCode = 500;
+            throw err;
+        }
 
         const payload = {
             id: user.id,
@@ -19,11 +27,16 @@ module.exports = {
         }
 
         const match = crypto.comparePassword(password, user.password);
-        if (!match) throw new Error("senha invalida!!");
 
+        if (!match) {
+            const err = new Error("Senha invalida!");
+            err.statusCode = 400;
+            throw err;
+        }
+            
         const token = generateToken(payload);
 
-        return { token: token, data: { id: user.id, email: user.email, role: user.role } };
+        return { token: token, data: { id: user.id, email: user.email, adm: user.adm } };
 
     }
 };

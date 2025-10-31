@@ -9,9 +9,9 @@ module.exports = {
             const {username, password, question, answer, adm} = req.body;
             const user = await UserService.createUserService(username, password, question, answer, adm);
             res.status(200).json({ status: "ok", message: "Usuarios cadastrado com sucesso"})
-        } catch (error) {
-            console.error("Erro ao tentar chamar rota: " + error);
-            res.status(400).json({ status: "err", message: "Erro ao tentar " });
+        } catch (err) {
+            console.error("Erro ao tentar criar usuario: " + err);
+            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar criar usuario" });
         }
     }
 }
