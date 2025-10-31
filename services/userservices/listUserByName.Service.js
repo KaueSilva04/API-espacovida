@@ -1,30 +1,22 @@
 const UserRepository = require('../../repositories/user.repository');
 
-class CustomError extends Error {
-    constructor(message, statusCode) {
-        super(message);
-        this.statusCode = statusCode;
-        this.name = 'CustomError';
+module.exports = {
+    async getUserByNameService(username) {
+        if (!username || typeof username !== 'string') {
+            const err = new Error("Insira username como um string Obrigatoriamente");
+            err.statusCode = 400;
+            throw err;
+        }
+
+        const user = await UserRepository.getUserByName(username);
+
+        if (!user) {
+            const err = new Error("Erro interno ao tentar listar usuario");
+            err.statusCode = 500;
+            throw err;
+        }
+
+        return user;
     }
+
 }
-
-async function getUserByNameService(username) {
-    if (!username || typeof username !== 'string' || username.trim() === '') {
-        throw new CustomError('Nome de usuário inválido ou não fornecido.', 400);
-    }
-
-    const user = await UserRepository.getUserByName(username); 
-    
-    if (!user) {
-        throw new CustomError(`Usuário "${username}" não encontrado.`, 404);
-    }
-    
-    return user;
-}
-
-// Adapte as suas exportações existentes para incluir a nova função e o CustomError
-module.exports = { 
-    // ... outras funções de serviço (ex: deleteUser, updateUser) ...
-    getUserByNameService, 
-    CustomError 
-};

@@ -5,20 +5,18 @@ module.exports = {
         try {
             const { username, password } = req.body;
             const user = await LoginService.loginUserService(username, password);
-            // envia cookie HttpOnly
+
             res.cookie('token', user.token, {
-                httpOnly: true,   
-                secure: process.env.NODE_ENV === 'production', 
-                sameSite: 'strict', 
-                maxAge: 3600000 * 3 // 3 hora
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'strict',
+                maxAge: 3600000 * 3
             });
-            res.json({ user: user.data });
+            res.status(200).json({ status: "ok", message: "Usuario logado com sucesso", data: user.data });
 
         } catch (error) {
-            console.error('Erro no Controller de Login:', error);
-            return res.status(500).json({
-                error: 'Ocorreu um erro interno no servidor durante o login.'
-            });
+            console.error("Erro ao tentar deletar usuario: " + err);
+            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar realizar login " });
         }
     }
 };

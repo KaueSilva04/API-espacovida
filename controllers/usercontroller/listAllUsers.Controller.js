@@ -4,7 +4,7 @@ module.exports = {
     async listAll(req, res) {
         try {
             const users = await UserService.listAllUsersService();
-            res.status(200).json({ status: "ok", message: "Usuarios encontrados com sucesso", data: users });
+            res.status(200).json({ status: "ok", message: "Usuarios listados com sucesso", data: users });
 
         } catch (error) {
             console.error("Erro ao tentar chamar rota: " + error);

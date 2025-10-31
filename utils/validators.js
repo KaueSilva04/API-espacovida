@@ -1,15 +1,4 @@
 module.exports = {
-    validateString(value) {
-        if (!value || typeof value != 'string') {
-            throw new Error("invalido: Está vazia ou não é uma String");
-        }
-    },
-    validateBoolean(value) {
-        if (typeof value != "boolean") {
-            throw new Error("invalido: Não e boolean");
-        }
-    },
-
     cleanPhone(value) {
         return value.replace(/\D/g, "");
     },

@@ -3,19 +3,28 @@ const { hashPassword } = require('../../utils/crypto');
 
 
 
+
 module.exports = {
-    async createUserService(username, password, question, answer, adm){
-        if (!question || typeof question !== 'string' || question.trim().length === 0) {
-            throw new Error('question inválida: informe a pergunta de segurança.');
+    async createUserService(username, password, question, answer, adm) {
+        console.log(username + " " + password + " " + question + " " + answer + " " + adm);
+        if (!username || !password || !question || !answer || adm === undefined || adm === null) {
+            const err = new Error("Campos obrigatorios: username, password, question, answer, adm");
+            err.statusCode = 400;
+            throw err;
         }
-        if (!answer || typeof answer !== 'string' || answer.trim().length === 0) {
-            throw new Error('answer inválida: informe a resposta de segurança.');
+        if (typeof username !== 'string' || typeof password !== 'string' || typeof question !== 'string' || typeof answer !== 'string' || typeof adm !== 'boolean') {
+            const err = new Error("Tipos inválidos: 'username', 'password', 'question' e 'answer' devem ser strings, e 'adm' deve ser boolean");
+            err.statusCode = 400;
+            throw err;
         }
-        if (typeof adm !== 'boolean') {
-            adm = false;
-        }
-        password =  await hashPassword(password);
+
+        password = await hashPassword(password);
         const user = await UserRepository.createUser(username, password, question, answer, adm);
+        if (!user) {
+            const err = new Error("Usuario nao cadastrado");
+            err.statusCode = 400;
+            throw err;
+        }
         return user;
     }
 }
