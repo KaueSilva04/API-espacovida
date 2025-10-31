@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3000;
 const prisma = new PrismaClient();
 module.exports.prisma = prisma;
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(cookieParser());
 
 
