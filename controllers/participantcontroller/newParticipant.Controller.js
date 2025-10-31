@@ -3,7 +3,9 @@ const ParticipantService = require('../../services/participantservices/newPartic
 module.exports = {
     async newParticipant(req, res, next) {
         try {
-      const participantData = req.body; // { name, email, phone, eventId }
+      const participantData = req.body;
+      console.log(participantData)
+      // { name, email, phone, eventId }
       const participant = await ParticipantService.newParticipantService(participantData);
       return res
         .status(201)

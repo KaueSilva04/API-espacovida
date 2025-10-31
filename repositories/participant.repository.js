@@ -2,8 +2,8 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 module.exports = {
-    async newParticipant({ name, email, phone, eventId }) {
-    const idevent = Number(eventId);
+    async newParticipant({ name, email, phone, idEvent }) {
+    const idevent = Number(idEvent);
 
     // verifica evento
     const event = await prisma.event.findUnique({
@@ -64,4 +64,5 @@ module.exports = {
     await prisma.participant.delete({ where: { idparticipant: pid } });
     return true;
   }
+  
 };

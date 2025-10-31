@@ -10,7 +10,7 @@ router.get('/test', (req, res) => {
   res.json({ message: 'teste rodando' });
 });
 
-router.post('/participate', (req, res, next) => newParticipant(req, res, next));
+router.post('/', (req, res, next) => newParticipant(req, res, next));
 
 // remove participante de um evento
 router.delete('/delete', (req, res, next) => deleteparticipant(req, res, next));
