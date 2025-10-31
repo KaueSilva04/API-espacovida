@@ -2,10 +2,6 @@ const { updateUserService, CustomError } = require('../../services/userservices/
 
 module.exports = {
     async updateUser(req, res, next) {
-
-
-
-
         try {
             const { id, username, password, question, answer, adm } = req.body;
             const updatedUser = await updateUserService(id, username, password, question, answer, adm);
