@@ -3,7 +3,8 @@ const DeleteEvent = require('../../services/eventservices/deleteEvent.Service');
 module.exports = {
     async deleteEvent(req, res) {
         try {
-            const { event_id } = req.params;
+            let body  = req.body;
+            event_id = parseInt(body.id, 10)
             await DeleteEvent.deleteEventService(event_id);
             return res
                 .status(200)
