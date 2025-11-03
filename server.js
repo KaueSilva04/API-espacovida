@@ -10,9 +10,16 @@ const PORT = process.env.PORT || 3000;
 const prisma = new PrismaClient();
 module.exports.prisma = prisma;
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:5173', // NÃO PODE SER '*'
+    credentials: true // Permite que o frontend envie/receba cookies
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
+
+
 
 
 const indexRoutes = require('./routes/index');
