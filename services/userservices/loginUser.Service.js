@@ -15,7 +15,7 @@ module.exports = {
         const user = await UserRepository.getUserByName(username);
 
         if (!user) {
-            const err = new Error("Erro interno ao tentar listar usuario");
+            const err = new Error("Erro interno ao tentar realizar login");
             err.statusCode = 500;
             throw err;
         }
@@ -26,14 +26,16 @@ module.exports = {
             adm: user.adm
         }
 
-        const match = crypto.comparePassword(password, user.password);
-
+        const match = await crypto.comparePassword(password, user.password);
+     
         if (!match) {
+            
             const err = new Error("Senha invalida!");
             err.statusCode = 400;
             throw err;
         }
-            
+           
+
         const token = generateToken(payload);
 
         return { token: token, data: { id: user.id, email: user.email, adm: user.adm } };

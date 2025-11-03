@@ -7,7 +7,7 @@ module.exports = {
             res.status(200).json({ status: "ok", message: "Usuarios listados com sucesso", data: users });
 
         } catch (error) {
-            console.error("Erro ao tentar chamar rota: " + error);
+            console.error("Erro ao tentar listar usuarios: " + error);
             res.status(400).json({ status: "err", message: "Erro ao tentar listar usuarios" });
         }
     }

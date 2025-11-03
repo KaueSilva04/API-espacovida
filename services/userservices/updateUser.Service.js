@@ -1,12 +1,14 @@
 const UserRepository = require('../../repositories/user.repository');
 
 module.exports = {
-    async updateUserService(id, username, password, question, answer, adm) {
+    async updateUserService(id, username, question, answer, adm) {
 
-        let UpdateData = [];
+        let updateData = {};
         if (username) updateData.username = username;
         if (question) updateData.question = question;
         if (answer) updateData.answer = answer;
+        if (adm != undefined || adm != null) updateData.adm = adm;
+
 
         if (Object.keys(updateData).length === 0) {
             const err = new Error("Todos os campos vazios");
@@ -14,7 +16,7 @@ module.exports = {
             throw err;
         }
 
-        const user = UserRepository.updateUser(id, updateData);
+        const user = await UserRepository.updateUser(id, updateData);
 
 
         if (!user) {
@@ -23,7 +25,7 @@ module.exports = {
             throw err;
         }
 
-        return user
+        return user;
 
     }
 }

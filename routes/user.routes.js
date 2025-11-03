@@ -10,6 +10,7 @@ const { listUserById } = require('../controllers/usercontroller/listUserById.Con
 const { listUserByName } = require('../controllers/usercontroller/listUserByName.Controller');
 const { loginUser } = require('../controllers/usercontroller/loginUser.Controller');
 const  middleware  = require('../utils/middleware');
+const { resetPasswordUser } = require('../controllers/usercontroller/resetPassword.Controller');
 
 const notImplemented = (req, res) =>
   res.status(501).json({ status: 'err', message: 'Rota não implementada' });
@@ -19,13 +20,14 @@ router.get('/test', (req, res) => {
 });
 
 //  Implementada
-router.get('/listall', (req, res, next) => listAll(req, res, next));
-router.post('/register', (req, res, next) => create(req, res, next));
-router.delete('/', (req, res, next) => deleteUser(req, res, next));
-router.put('/', (req, res, next) => updateUser(req, res, next));
-router.get('/listid', (req, res, next) => listUserById(req, res, next));
-router.get('/listname', (req,res,next) => listUserByName(req, res, next));
-router.post('/login', (req, res, next) => loginUser(req, res, next));
+router.get('/listall', middleware.authMiddleware(), listAll);
+router.post('/register', middleware.authMiddleware(true),  create);
+router.delete('/',  middleware.authMiddleware(true),  deleteUser);
+router.put('/', middleware.authMiddleware(true),  updateUser);
+router.get('/listid', middleware.authMiddleware(), listUserById);
+router.get('/listname', middleware.authMiddleware(), listUserByName);
+router.post('/login',  loginUser);
+router.put('/resetpassword', middleware.authMiddleware(),  resetPasswordUser);
 
 router.get('/costumer', middleware.authMiddleware(), (req, res) => {
   res.json({ user: req.user });
@@ -34,9 +36,6 @@ router.get('/costumer', middleware.authMiddleware(), (req, res) => {
 router.get('/admin', middleware.authMiddleware(true), (req, res) => {
   res.json({ user: req.user });
 });
-
-
-
 
 
 

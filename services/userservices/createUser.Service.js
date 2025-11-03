@@ -1,5 +1,5 @@
 const UserRepository = require('../../repositories/user.repository');
-const { hashPassword } = require('../../utils/crypto');
+const crypto = require('../../utils/crypto');
 
 
 
@@ -18,7 +18,8 @@ module.exports = {
             throw err;
         }
 
-        password = await hashPassword(password);
+        password = await crypto.hashPassword(password);
+        answer = await crypto.hash(answer);
         const user = await UserRepository.createUser(username, password, question, answer, adm);
         if (!user) {
             const err = new Error("Usuario nao cadastrado");

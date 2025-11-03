@@ -8,16 +8,17 @@ const editEventController = require('../controllers/eventcontroller/editEvent.Co
 const deleteEventController = require('../controllers/eventcontroller/deleteEvent.Controller.js');
 const getParticipantsByEventController = require('../controllers/eventcontroller/getParticipantsByEvent.Controller.js');
 const listAllEventsController = require('../controllers/eventcontroller/listAllEvent.Controller.js');
+const middleware = require('../utils/middleware.js');
 
 router.get('/test', (req, res) => {
   res.json({ message: 'event routes ok' });
 });
 
 // Apenas delegação para os controllers (padrão middleware)
-router.post('/',        (req, res, next) => createEventController.createEvent(req, res, next));
-router.put('/',         (req, res, next) => editEventController.editEvent(req, res, next));
-router.delete('/',      (req, res, next) => deleteEventController.deleteEvent(req, res, next));
-router.get('/participants', (req, res, next) => getParticipantsByEventController.getParticipantByEvent(req, res, next));
-router.get('/all',      (req, res, next) => listAllEventsController.listAllEvents(req, res, next));
+router.post('/', middleware.authMiddleware() , createEventController.createEvent);
+router.put('/', middleware.authMiddleware() , editEventController.editEvent);
+router.delete('/', middleware.authMiddleware() , deleteEventController.deleteEvent);
+router.get('/participants', middleware.authMiddleware() , getParticipantsByEventController.getParticipantByEvent);
+router.get('/all', listAllEventsController.listAllEvents);
 
 module.exports = router;

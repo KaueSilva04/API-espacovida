@@ -7,6 +7,7 @@ module.exports = {
             err.statusCode = 400;
             throw err;
         }
+        
         const existingUser = await UserRepository.getUserById(id);
 
         if (!existingUser) {
