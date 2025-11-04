@@ -36,11 +36,11 @@ app.use('/user', userRoutes);
 
 
 app.get('/costumer', middleware.authMiddleware(), (req, res) => {
-  res.json({ auth: req.auth });
+  res.json({ data: req.data });
 });
 
 app.get('/admin', middleware.authMiddleware(true), (req, res) => {
-  res.json({ auth: req.auth});
+  res.json({ data: req.data});
 });
 
 app.use((req, res) => {
