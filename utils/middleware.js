@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { decodedToken } = require('./JWT.JS');
+const { verifyToken } = require('./JWT.JS');
 const SECRET = process.env.JWT_SECRET;
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
             if (!token) return res.status(401).json({ error: 'Token não fornecido', auth: false });
 
             try {
-                const decoded = jwt.verify(token);
+                const decoded = verifyToken(token);
 
                 if (requireAdmin && !decoded.adm) {
                     return res.status(403).json({ error: 'Acesso negado', auth: false });

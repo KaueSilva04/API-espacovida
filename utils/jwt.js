@@ -16,17 +16,9 @@ module.exports = {
                 err.statusCode = 400;
                 throw err;
             }
-            return verifyToken(token, SECRET); // retorna o payload se for válido
+            return jwt.verify(token, SECRET); // retorna o payload se for válido
         } catch (error) {
             return null; // token inválido ou expirado
-        }
-    },
-    decodedToken(token) {
-        try {
-            const decoded = jwt.verify(token, SECRET);
-            return decoded;
-        } catch {
-            return null;
         }
     }
 };
