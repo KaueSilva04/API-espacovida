@@ -31,11 +31,16 @@ module.exports = {
                 data: userWithoutPassword 
             });
         } catch (err) {
+<<<<<<< HEAD
             console.error("Erro ao tentar atualizar usuário: " + err);
             res.status(err.statusCode || 400).json({ 
                 status: "err", 
                 message: err.message || "Erro ao tentar atualizar as informações do usuário" 
             });
+=======
+            console.error("Erro ao tentar atualizar as informacoes do usuario: " + err);
+            res.status(err.statusCode || 400).json({ status: "error", message: "Erro ao tentar ratualizar as informacoes do usuario" });
+>>>>>>> a991bfdfe1523e1b046bbc93890fb3ba4c813375
         }
     }
 };

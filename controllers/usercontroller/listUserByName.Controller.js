@@ -9,7 +9,7 @@ module.exports = {
             res.status(200).json({ status: "ok", message: "Usuario listado com sucesso", data: userWithoutPassword });
         } catch (err) {
             console.error("Erro ao tentar listar usuario pelo username: " + err);
-            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar listar usuario" });
+            res.status(err.statusCode || 400).json({ status: "error", message: "Erro ao tentar listar usuario" });
         }
     }
 };

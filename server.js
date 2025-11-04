@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { PrismaClient } = require('@prisma/client');
+const  middleware  = require('./utils/middleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,6 +32,16 @@ app.use('/', indexRoutes);
 app.use('/event', eventRoutes);
 app.use('/participant', participantRoutes);
 app.use('/user', userRoutes);
+
+
+
+app.get('/costumer', middleware.authMiddleware(), (req, res) => {
+  res.json({ data: req.data });
+});
+
+app.get('/admin', middleware.authMiddleware(true), (req, res) => {
+  res.json({ data: req.data});
+});
 
 app.use((req, res) => {
   res.status(404).json({ status: 'erro', message: 'Rota não encontrada' });

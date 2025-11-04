@@ -16,7 +16,7 @@ module.exports = {
 
         } catch (err) {
             console.error("Erro ao tentar realizar login: " + err);
-            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar realizar login " });
+            res.status(err.statusCode || 400).json({ status: "error", message: "Erro ao tentar realizar login " });
         }
     }
 };

@@ -8,7 +8,7 @@ module.exports = {
 
         } catch (error) {
             console.error("Erro ao tentar listar usuarios: " + error);
-            res.status(400).json({ status: "err", message: "Erro ao tentar listar usuarios" });
+            res.status(400).json({ status: "error", message: "Erro ao tentar listar usuarios" });
         }
     }
 }

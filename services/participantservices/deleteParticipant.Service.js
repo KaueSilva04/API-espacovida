@@ -5,7 +5,7 @@ module.exports = {
     
 
     if (!idparticipant || !eventId) {
-      const err = new Error('Campos obrigatórios: name, email, eventId');
+      const err = new Error('Campos obrigatórios: idparticipant, eventId');
       err.statusCode = 400;
       throw err;
     }
