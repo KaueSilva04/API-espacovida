@@ -34,7 +34,7 @@ router.get('/costumer', middleware.authMiddleware(), (req, res) => {
 });
 
 router.get('/admin', middleware.authMiddleware(true), (req, res) => {
-  res.json({ user: req.user });
+  res.json({ user: req.user,  });
 });
 
 
