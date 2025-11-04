@@ -13,6 +13,6 @@ router.get('/test', (req, res) => {
 router.post('/', (req, res, next) => newParticipant(req, res, next));
 
 // remove participante de um evento
-router.delete('/delete', (req, res, next) => deleteparticipant(req, res, next));
+router.delete('/', (req, res, next) => deleteparticipant(req, res, next));
 
 module.exports = router;

@@ -1,20 +1,13 @@
 // controller/participant/deleteParticipant.js
 const { PrismaClient } = require('@prisma/client');
+const { deleteParticipantService } = require('../../services/participantservices/deleteParticipant.Service')
 const prisma = new PrismaClient();
 
 exports.deleteparticipant = async (req, res, next) => {
   try {
     let { idparticipant, eventId } = req.body;
 
-    // validação
-    if (idparticipant == null || eventId == null) {
-      return res.status(400).json({
-        status: 'erro',
-        message: 'Campos obrigatórios: id do user , e id do evento',
-      });
-    }
-
-    
+    deleteParticipantService(idparticipant, eventId)
 
     return res.status(200).json({
       status: 'ok',

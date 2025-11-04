@@ -4,7 +4,6 @@ module.exports = {
     async newParticipant(req, res, next) {
         try {
       const participantData = req.body;
-      console.log(participantData)
       // { name, email, phone, eventId }
       const participant = await ParticipantService.newParticipantService(participantData);
       return res
