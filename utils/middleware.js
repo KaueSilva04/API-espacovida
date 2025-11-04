@@ -9,7 +9,7 @@ module.exports = {
             if (!token) return res.status(401).json({ error: 'Token não fornecido', auth: false });
 
             try {
-                const decoded = decodedToken(token);
+                const decoded = jwt.verify(token);
 
                 if (requireAdmin && !decoded.adm) {
                     return res.status(403).json({ error: 'Acesso negado', auth: false });

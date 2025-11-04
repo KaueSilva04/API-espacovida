@@ -13,10 +13,10 @@ module.exports = {
         try {
             if (!token) {
                 const err = new Error("Token invalido");
-                err.statusCode = 500;
+                err.statusCode = 400;
                 throw err;
             }
-            return jwt.verify(token, SECRET); // retorna o payload se for válido
+            return verifyToken(token, SECRET); // retorna o payload se for válido
         } catch (error) {
             return null; // token inválido ou expirado
         }
