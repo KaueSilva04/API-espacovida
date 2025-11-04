@@ -5,28 +5,13 @@ const router = express.Router();
 module.exports = {
     async create(req, res) {
         try {
-            console.log('=== CREATE USER CONTROLLER ===');
-            console.log('Body recebido:', req.body);
-            
-            const { username, password, question, answer, adm } = req.body;
-            
-            // ✅ Adicionar validação básica
-            if (!username || !password || !question || !answer || adm === undefined) {
-                return res.status(400).json({ 
-                    status: "err", 
-                    message: "Campos obrigatórios faltando" 
-                });
-            }
-            
+            const { username, password, question, answer, adm } = req.body;       
             const user = await UserService.createUserService(username, password, question, answer, adm);
-            
-            console.log('Usuário criado:', user);
-            
-            // ✅ IMPORTANTE: Retornar o usuário criado no 'data'
+
             res.status(200).json({ 
                 status: "ok", 
                 message: "Usuário cadastrado com sucesso",
-                data: user  // ← ADICIONAR ISSO
+                data: user  
             });
         } catch (err) {
             console.error("Erro ao tentar criar usuario: " + err);

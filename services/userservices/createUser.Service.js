@@ -6,7 +6,7 @@ const crypto = require('../../utils/crypto');
 
 module.exports = {
     async createUserService(username, password, question, answer, adm) {
-        console.log(username + " " + password + " " + question + " " + answer + " " + adm);
+   
         if (!username || !password || !question || !answer || adm === undefined || adm === null) {
             const err = new Error("Campos obrigatorios: username, password, question, answer, adm");
             err.statusCode = 400;
