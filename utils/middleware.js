@@ -14,7 +14,7 @@ module.exports = {
                     return res.status(403).json({ error: 'Acesso negado', auth: false });
                 }
 
-                req.user = {userId: decoded.id, auth: true};
+                req.auth =  true;
                 next();
             } catch (err) {
                 return res.status(403).json({ error: 'Token inválido ou expirado ' + err , auth: false});
