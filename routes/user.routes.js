@@ -30,11 +30,11 @@ router.post('/login',  loginUser);
 router.put('/resetpassword', middleware.authMiddleware(),  resetPasswordUser);
 
 router.get('/costumer', middleware.authMiddleware(), (req, res) => {
-  res.json({ user: req.user });
+  res.json({ data: req.user });
 });
 
 router.get('/admin', middleware.authMiddleware(true), (req, res) => {
-  res.json({ user: req.user,  });
+  res.json({ data: req.user});
 });
 
 

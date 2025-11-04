@@ -9,7 +9,7 @@ module.exports = {
             res.status(200).json({ status: "ok", message: "Usuario atualizado com sucesso", data: userWithoutPassword });
         } catch (err) {
             console.error("Erro ao tentar atualizar as informacoes do usuario: " + err);
-            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar ratualizar as informacoes do usuario" });
+            res.status(err.statusCode || 400).json({ status: "error", message: "Erro ao tentar ratualizar as informacoes do usuario" });
         }
     }
 };

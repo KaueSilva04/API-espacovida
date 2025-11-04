@@ -8,7 +8,7 @@ module.exports = {
             res.status(200).json({ status: "ok", message: "Usuario atualizado com sucesso"});
         }catch(err){
              console.error("Erro ao tentar atualizar a senha usuario: " + err);
-            res.status(err.statusCode || 400).json({ status: "err", message: "Erro ao tentar atualizar a senha usuario" });
+            res.status(err.statusCode || 400).json({ status: "error", message: "Erro ao tentar atualizar a senha usuario" });
         }
         
     }
