@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { PrismaClient } = require('@prisma/client');
-const  middleware  = require('./utils/middleware');
+const middleware = require('./utils/middleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,8 +12,11 @@ const prisma = new PrismaClient();
 module.exports.prisma = prisma;
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // NÃO PODE SER '*'
-    credentials: true // Permite que o frontend envie/receba cookies
+
+  credentials: true,
+  origin: '*', // permite qualquer origem
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
@@ -40,7 +43,7 @@ app.get('/costumer', middleware.authMiddleware(), (req, res) => {
 });
 
 app.get('/admin', middleware.authMiddleware(true), (req, res) => {
-  res.json({ data: req.data});
+  res.json({ data: req.data });
 });
 
 app.use((req, res) => {

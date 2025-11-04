@@ -5,7 +5,6 @@ const router = express.Router();
 const { listAll } = require('../controllers/usercontroller/listAllUsers.Controller');
 const { create } = require('../controllers/usercontroller/createUser.Controller');
 const { deleteUser } = require('../controllers/usercontroller/deleteUser.Controller');
-const { updateUser } = require('../controllers/usercontroller/updateUser.Controller');
 const { listUserById } = require('../controllers/usercontroller/listUserById.Controller');
 const { listUserByName } = require('../controllers/usercontroller/listUserByName.Controller');
 const { loginUser } = require('../controllers/usercontroller/loginUser.Controller');
@@ -23,7 +22,6 @@ router.get('/test', (req, res) => {
 router.get('/listall', middleware.authMiddleware(), listAll);
 router.post('/register', middleware.authMiddleware(true),  create);
 router.delete('/',  middleware.authMiddleware(true),  deleteUser);
-router.put('/', middleware.authMiddleware(true),  updateUser);
 router.get('/listid', middleware.authMiddleware(), listUserById);
 router.get('/listname', middleware.authMiddleware(), listUserByName);
 router.post('/login',  loginUser);
