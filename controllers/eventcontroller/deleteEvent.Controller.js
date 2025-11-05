@@ -3,9 +3,10 @@ const DeleteEvent = require('../../services/eventservices/deleteEvent.Service');
 module.exports = {
     async deleteEvent(req, res) {
         try {
-            let body  = req.body;
-            event_id = parseInt(body.id, 10)
-            await DeleteEvent.deleteEventService(event_id);
+            const { id, imagePublicId } = req.body;
+
+            event_id = parseInt(id, 10)
+            await DeleteEvent.deleteEventService(event_id, imagePublicId);
             return res
                 .status(200)
                 .json({ status: 'ok', message: 'Evento deletado com sucesso' });

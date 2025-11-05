@@ -8,6 +8,7 @@ const { deleteUser } = require('../controllers/usercontroller/deleteUser.Control
 const { listUserById } = require('../controllers/usercontroller/listUserById.Controller');
 const { listUserByName } = require('../controllers/usercontroller/listUserByName.Controller');
 const { loginUser } = require('../controllers/usercontroller/loginUser.Controller');
+const { logoutUser } = require('../controllers/usercontroller/logoutUser.Controller');
 const  middleware  = require('../utils/middleware');
 const { resetPasswordUser } = require('../controllers/usercontroller/resetPassword.Controller');
 const { renderMyProfile } = require('../controllers/usercontroller/renderMyProfile.Controller');
@@ -26,6 +27,7 @@ router.delete('/',  middleware.authMiddleware(true),  deleteUser);
 router.get('/listid', middleware.authMiddleware(), listUserById);
 router.get('/listname', middleware.authMiddleware(), listUserByName);
 router.post('/login',  loginUser);
+router.post('/logout', middleware.authMiddleware(), logoutUser);
 router.put('/resetpassword', middleware.authMiddleware(),  resetPasswordUser);
 
 router.get('/renderprofile', middleware.authMiddleware(),  renderMyProfile);

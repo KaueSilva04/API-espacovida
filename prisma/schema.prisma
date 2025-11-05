@@ -22,6 +22,8 @@ model Event {
   location    String
   date        DateTime
   description String
+  coverImageUrl String?
+  imagePublicId String?
   participants Participant[]
 }
 
