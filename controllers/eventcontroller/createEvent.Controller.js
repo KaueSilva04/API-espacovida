@@ -3,7 +3,17 @@ const CreateEvent = require('../../services/eventservices/createEvent.Service');
 module.exports = {
     async createEvent(req, res) {
         try {
-            const eventData = req.body;
+            const { title, description, date, location, coverImageUrl, imagePublicId } = req.body;
+
+            const eventData = {
+                title,
+                description,
+                date,
+                location,
+                coverImageUrl: coverImageUrl || null,
+                imagePublicId: imagePublicId || null
+            };
+
             const event = await CreateEvent.createEventService(eventData);
             return res
                 .status(201)
