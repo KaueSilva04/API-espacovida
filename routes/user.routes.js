@@ -10,7 +10,7 @@ const { listUserByName } = require('../controllers/usercontroller/listUserByName
 const { loginUser } = require('../controllers/usercontroller/loginUser.Controller');
 const  middleware  = require('../utils/middleware');
 const { resetPasswordUser } = require('../controllers/usercontroller/resetPassword.Controller');
-const { renderMyPerfil } = require('../controllers/usercontroller/renderMyPerfil.Controller');
+const { renderMyProfile } = require('../controllers/usercontroller/renderMyProfile.Controller');
 
 const notImplemented = (req, res) =>
   res.status(501).json({ status: 'err', message: 'Rota não implementada' });
@@ -28,7 +28,7 @@ router.get('/listname', middleware.authMiddleware(), listUserByName);
 router.post('/login',  loginUser);
 router.put('/resetpassword', middleware.authMiddleware(),  resetPasswordUser);
 
-router.get('/renderperfil', middleware.authMiddleware(),  renderMyPerfil);
+router.get('/renderprofile', middleware.authMiddleware(),  renderMyProfile);
 
 
 
