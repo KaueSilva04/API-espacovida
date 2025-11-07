@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { verifyToken } = require('./JWT.JS');
+const { verifyToken } = require('./jwt.js');
 const SECRET = process.env.JWT_SECRET;
 
 module.exports = {

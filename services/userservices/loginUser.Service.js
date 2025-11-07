@@ -1,6 +1,6 @@
 const UserRepository = require('../../repositories/user.repository');
 const crypto = require('../../utils/crypto');
-const { generateToken } = require('../../utils/JWT.JS');
+const { generateToken } = require('../../utils/jwt');
 
 
 module.exports = {

@@ -1,5 +1,5 @@
 const userRepository = require("../../repositories/user.repository");
-const { verifyToken } = require("../../utils/JWT.JS");
+const { verifyToken } = require("../../utils/jwt");
 
 module.exports = {
     async renderMyProfileService(token){
