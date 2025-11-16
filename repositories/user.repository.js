@@ -1,8 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
+const { prisma } = require('../server');
 const { encrypt, decrypt } = require('../utils/crypto');
 const { getUserById } = require('../Para ser refatorado/user');
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
 module.exports = {
     async getAllUsers() {

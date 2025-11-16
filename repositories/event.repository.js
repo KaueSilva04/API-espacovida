@@ -53,5 +53,20 @@ module.exports = {
 
         const events = await prisma.event.findMany();
         return events;
+    },
+    async getTotalEvents(){
+        const events = await prisma.event.count();
+        return events
+    },
+    async getFutureEvents(){
+        const events = prisma.event.count({
+            where:{
+                date: {
+                    gte: new Date()
+                }
+            }
+        })
+
+        return events;
     }
 };

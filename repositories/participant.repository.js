@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 module.exports = {
-    async newParticipant({ name, email, phone, idEvent }) {
+  async newParticipant({ name, email, phone, idEvent }) {
     const idevent = Number(idEvent);
 
     // verifica evento
@@ -27,9 +27,9 @@ module.exports = {
       throw err;
     }
 
-//usamos o upsert pois como apenas o email é unico, se a pessoa ja tiver
-// cadastrado em outro evento, atualizamos o telefone e adicionamos o novo evento
-//se nao criamos do zero
+    //usamos o upsert pois como apenas o email é unico, se a pessoa ja tiver
+    // cadastrado em outro evento, atualizamos o telefone e adicionamos o novo evento
+    //se nao criamos do zero
     const participant = await prisma.participant.upsert({
       where: { email }, // email UNIQUE no schema
       update: { phone, eventId: idevent },
@@ -63,6 +63,10 @@ module.exports = {
 
     await prisma.participant.delete({ where: { idparticipant: pid } });
     return true;
+  },
+  async getTotalParticipant(){
+    const participants = await prisma.participant.count();
+    return participants;
   }
-  
+
 };
