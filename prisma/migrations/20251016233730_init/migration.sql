@@ -1,14 +1,4 @@
--- CreateTable
-CREATE TABLE "User" (
-    "id" SERIAL NOT NULL,
-    "username" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
-    "question" TEXT,
-    "answer" TEXT,
-    "adm" BOOLEAN NOT NULL DEFAULT false,
 
-    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
 
 -- CreateTable
 CREATE TABLE "Event" (

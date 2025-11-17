@@ -2,6 +2,15 @@ const EventRepository = require('../repositories/event.repository');
 const ParticipantRepository = require('../repositories/participant.repository');
 
 const monthNames = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+function formatDate(dateString) {
+    const date = new Date(dateString);
+
+    const dia = String(date.getUTCDate()).padStart(2, '0');
+    const mes = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const ano = date.getUTCFullYear();
+
+    return `${dia}/${mes}/${ano}`;
+}
 
 module.exports = {
     async homeDataList() {
@@ -12,7 +21,7 @@ module.exports = {
             err.statusCode = 500;
             throw err;
         }
-        
+
         if (totalEvents === 0) {
             const err = new Error("Nenhum evento encontrado");
             err.statusCode = 404;
@@ -30,7 +39,7 @@ module.exports = {
         const avg = totalParticipants / totalEvents;
         const averageParticipants = (avg === 0) ? 0 : Math.max(1, Math.round(avg));
 
-    
+
         const futureEvents = await EventRepository.countFutureEvents();
         if (futureEvents === null) {
             const err = new Error("Erro ao buscar eventos futuros");
@@ -104,12 +113,13 @@ module.exports = {
             return {
                 id: event.idevent,
                 title: event.title,
-                date: event.date,
+                date: formatDate(event.date),
                 location: event.location
             };
         });
 
         const topEvents = await ParticipantRepository.listParticipantesTopEvents();
+
         if (!Array.isArray(topEvents)) {
             const err = new Error("Erro ao buscar eventos mais populares");
             err.statusCode = 500;
@@ -141,17 +151,24 @@ module.exports = {
             });
         }
 
+        const eventsDistribution = [
+            { name: "Futuros", value: futureEvents },
+            { name: "Passados", value: pastEvents }
+        ];
+
         const result = {
             totalEvents,
             totalParticipants,
             averageParticipants,
             futureEvents,
             pastEvents,
+            eventsDistribution,
             participantsMonthly,
             nextEvents: nextEventsUpdate,
             topEvents: topEventsAtualizado
         };
 
         return result;
-    }
+    },
+
 };

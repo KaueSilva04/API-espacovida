@@ -6,40 +6,41 @@ module.exports = {
   async newParticipant({ name, email, phone, idEvent }) {
     const idevent = Number(idEvent);
 
-    // verifica evento
+    // 1. Verifica se o evento existe
     const event = await prisma.event.findUnique({
       where: { idevent },
       select: { idevent: true }
     });
+
     if (!event) {
       const err = new Error('Evento não encontrado');
       err.statusCode = 404;
       throw err;
     }
 
-    // já inscrito?
+    // 2. Verifica se o participante já está inscrito NO MESMO EVENTO
     const already = await prisma.participant.findFirst({
       where: { email, eventId: idevent },
       select: { idparticipant: true }
     });
+
     if (already) {
       const err = new Error(`Este e-mail (${email}) já está inscrito no evento ${idevent}.`);
       err.statusCode = 409;
       throw err;
     }
 
-    //usamos o upsert pois como apenas o email é unico, se a pessoa ja tiver
-    // cadastrado em outro evento, atualizamos o telefone e adicionamos o novo evento
-    //se nao criamos do zero
-    const participant = await prisma.participant.upsert({
-      where: { email }, // email UNIQUE no schema
-      update: { phone, eventId: idevent },
-      create: { name, email, phone, eventId: idevent },
-      include: { event: { select: { idevent: true, title: true } } }
+    // 3. Cadastra o participante no evento
+    const participant = await prisma.participant.create({
+      data: { name, email, phone, eventId: idevent },
+      include: {
+        event: { select: { idevent: true, title: true } }
+      }
     });
 
     return participant;
-  },
+  }
+  ,
 
   async deleteParticipant({ idparticipant, eventId }) {
     const pid = Number(idparticipant);
@@ -65,29 +66,29 @@ module.exports = {
     await prisma.participant.delete({ where: { idparticipant: pid } });
     return true;
   },
-  async getTotalParticipant(){
+  async getTotalParticipant() {
     const participants = await prisma.participant.count();
     return participants;
   },
-  async getParticipantByEvent(eventId){
+  async getParticipantByEvent(eventId) {
     const participant = await prisma.participant.count({
-      where: {eventId}
+      where: { eventId }
     });
 
     return participant;
   },
-  async listParticipantesTopEvents(){
+  async listParticipantesTopEvents() {
     const mostParticipantedEvent = await prisma.participant.groupBy({
       by: ['eventId'],
       _count: {
-          eventId: true
+        eventId: true
       },
       orderBy: {
         _count: {
-            eventId: 'desc'
+          eventId: 'desc'
         }
       },
-      take: 5
+      take: 7
     })
     return mostParticipantedEvent;
   }
