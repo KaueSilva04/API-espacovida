@@ -50,17 +50,16 @@ module.exports = {
         return participants;
     },
     async listAllEvents() {
-
         const events = await prisma.event.findMany();
         return events;
     },
-    async getTotalEvents(){
+    async countTotalEvents() {
         const events = await prisma.event.count();
         return events
     },
-    async getFutureEvents(){
+    async countFutureEvents() {
         const events = prisma.event.count({
-            where:{
+            where: {
                 date: {
                     gte: new Date()
                 }
@@ -68,5 +67,50 @@ module.exports = {
         })
 
         return events;
+    },
+    async countPastEvents() {
+        const events = prisma.event.count({
+            where: {
+                date: {
+                    lt: new Date()
+                }
+            }
+        })
+
+        return events;
+    },
+     async getAllEventsWithParticipants() {
+        return prisma.event.findMany({
+            include: {
+                participants: true,
+            }
+        });
+    },
+    async listNextEvents(){
+        return prisma.event.findMany({
+            where: {
+                date: {
+                    gte: new Date()
+                }
+            }
+        })
+    },
+    
+    async listPastEvents(){
+        return prisma.event.findMan({
+            where: {
+                date: {
+                    lt: new Date()
+                }
+            }
+        })
+    },
+
+    async getEventById(idevent){
+        return prisma.event.findUnique({
+            where: {
+                idevent
+            }
+        });
     }
 };

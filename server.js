@@ -28,12 +28,14 @@ const eventRoutes = require('./routes/event.routes');
 const participantRoutes = require('./routes/participant.routes');
 const userRoutes = require('./routes/user.routes');
 const uploadRoutes = require('./routes/upload.routes');
+const { listDasboard } = require('./controllers/home.Controller');
 
 app.use('/', indexRoutes);
 app.use('/event', eventRoutes);
 app.use('/participant', participantRoutes);
 app.use('/user', userRoutes);
 app.use('/upload', uploadRoutes);
+app.get('/dashboard',middleware.authMiddleware(), listDasboard);
 
 
 

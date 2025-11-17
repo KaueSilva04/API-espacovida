@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { getParticipantByEvent } = require('./event.repository');
 const prisma = new PrismaClient();
 
 module.exports = {
@@ -67,6 +68,28 @@ module.exports = {
   async getTotalParticipant(){
     const participants = await prisma.participant.count();
     return participants;
+  },
+  async getParticipantByEvent(eventId){
+    const participant = await prisma.participant.count({
+      where: {eventId}
+    });
+
+    return participant;
+  },
+  async listParticipantesTopEvents(){
+    const mostParticipantedEvent = await prisma.participant.groupBy({
+      by: ['eventId'],
+      _count: {
+          eventId: true
+      },
+      orderBy: {
+        _count: {
+            eventId: 'desc'
+        }
+      },
+      take: 5
+    })
+    return mostParticipantedEvent;
   }
 
 };
