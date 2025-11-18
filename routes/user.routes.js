@@ -26,10 +26,10 @@ router.get('/listall', middleware.authMiddleware(), listAll);
 router.post('/register', middleware.authMiddleware(true),  create);
 router.delete('/',  middleware.authMiddleware(true),  deleteUser);
 router.get('/listid', middleware.authMiddleware(), listUserById);
-router.get('/listname', middleware.authMiddleware(), listUserByName);
+router.post('/listname', listUserByName);
 router.post('/login',  loginUser);
 router.post('/logout', middleware.authMiddleware(), logoutUser);
-router.put('/resetpassword', middleware.authMiddleware(),  resetPasswordUser);
+router.put('/resetpassword',  resetPasswordUser);
 
 router.get('/renderprofile', middleware.authMiddleware(),  renderMyProfile);
 

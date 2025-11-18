@@ -3,9 +3,9 @@ const { getUserByNameService, CustomError } = require('../../services/userservic
 module.exports = {
     async listUserByName(req, res, next) {
         try {
-            const username = req.body.username;
+            const {username} = req.body;
             const user = await getUserByNameService(username);
-            const { password, ...userWithoutPassword } = user;
+            const { password,answer ,...userWithoutPassword } = user;
             res.status(200).json({ status: "ok", message: "Usuario listado com sucesso", data: userWithoutPassword });
         } catch (err) {
             console.error("Erro ao tentar listar usuario pelo username: " + err);
